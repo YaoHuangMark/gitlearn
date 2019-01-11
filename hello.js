@@ -5,3 +5,4 @@ console.log('--no-ff!!!');
 console.log('issue-101');
 console.log('git stash for save code');
 console.log('another commit');
+console.log('partner modify -dev');
