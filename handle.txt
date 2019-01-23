@@ -1,0 +1,59 @@
+1. 创建版本库
+
+   在文件目录下运行命令
+
+   ```javascript
+   $ git init
+   ```
+
+   这样就建好了一个Git仓库，可以用
+
+   ```javascript
+   ls -ah
+   ```
+
+   查看文件，会看到.git目录，因为这个目录默认是隐藏的。
+
+   现在新建一个readme.txt， 内容如下：
+
+   ```tex
+   Git is a version control system.
+   Git is free software.
+   ```
+
+   第一步，用命令`git add`告诉Git，把文件添加到仓库：
+
+   ```markdown
+   $ git add readme.txt
+   ```
+
+   第二步，用命令`git commit`告诉Git，把文件提交到仓库：
+
+   ```markdown
+   $ git commit -m "wrote a readme file"
+   ```
+
+   `-m`后面输入的是本次提交的说明，可以不写，但是推荐写说明，这对后面的多人协作有帮助。
+
+   `git commit`命令执行成功后会告诉你，`1 file changed`: 1个文件被改动，`2 insertions`: 插入了两行内容。
+
+   如果需要add多个文件：`git add file1.txt file2.txt`，如果需要add全部已修改的文件：`git add .`
+
+2. 查看文件状态
+   `git status`可以查看当前目录下所有新add的文件以及modify的文件，`git diff readme.txt`查看具体修改了什么内容。
+
+3. 版本回退
+   `git log`查看文件的提交历史，但是记录多了不易查看，可以试试`git log --pretty=oneline`，可以看到一大串类似`1094adb.....`的是`commit id`（版本号）。
+   现在要回退到上一版本：
+
+   ```markdown
+   $ git reset --hard HEAD^
+   ```
+
+   如果想回到最新版本可以先用`git reflog`（记录每一次命令）查看最新版本的commit id，然后直接回退到这个版本号id
+
+   ```markdown
+   $ git reset --hard id
+   ```
+
+   ​
